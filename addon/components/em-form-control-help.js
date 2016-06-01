@@ -29,7 +29,7 @@ export default Ember.Component.extend(InFormMixin, {
   }),
   init() {
     this._super(...arguments);
-    Ember.defineProperty(this, 'errors', Ember.computed.alias((`mainComponent.model.errors.${this.get('mainComponent.propertyName')}`)));
+    Ember.defineProperty(this, 'errors', Ember.computed.alias((`mainComponent.model.validations.attrs.${this.get('mainComponent.propertyName')}.messages`)));
   },
   helpText: Ember.computed('text', 'errors.firstObject', {
     get: function() {

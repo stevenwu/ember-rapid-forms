@@ -11,7 +11,7 @@ export default Ember.Mixin.create({
   init: function() {
     this._super(...arguments);
     Ember.assert(!Ember.isNone(this.get('propertyName')), 'propertyName is required.');
-    Ember.defineProperty(this, 'errors', Ember.computed.alias((`model.errors.${this.get('propertyName')}`)));
+    Ember.defineProperty(this, 'errors', Ember.computed.alias((`model.validations.attrs.${this.get('propertyName')}.messages`)));
   },
   status: Ember.computed('errors.length', {
     get: function() {
